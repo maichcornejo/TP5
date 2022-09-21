@@ -22,7 +22,7 @@ program ejercicio1;
             Mes: byte;
             Anio: byte;
         end;
-
+    //EMPIEZAN LOS RECORDS 
         rEmpleados=record                       //EMPLEADOS, r de record
             Nombrecompleto:aNombres;
             Sexo: aSexo;
@@ -43,7 +43,7 @@ program ejercicio1;
             Domicilio: aDomicilio;              //preg si la mejor forma es haciendo otro record
             LugarNacimiento: aLugarNac;
             FechaIngreso: aFecha;
-            NumeroLib:'0'..'99999';             //Numero de libreta, chequear si esta bien
+            NumeroLib:0..99999;             //Numero de libreta, chequear si esta bien
             Codigo: integer;                    //Código de carrera
             CantMAprobadas: byte;
             CantMCursadas: byte;
@@ -53,9 +53,14 @@ program ejercicio1;
         tInfoLibros=array[1..100] of rLibros;
         tInfoAlumnos=array[1..100] of rAlumnos;  
     //EMPIEZA EL PROGRAMA
-    begin
-                
-    end;
-
-
-
+    var 
+        empleado:rEmpleados;
+        tabla:tTablaEmpleados;
+        numerolegajo,i,j:integer;
+begin
+    writeln('Ingrese numero de legajo entre 7000 y 10000: ');
+    readln(numerolegajo);
+    tabla[numerolegajo].Nombrecompleto:='maia cornejo';
+    tabla[numerolegajo].sexo:=Femenino;
+    writeln(tabla[numerolegajo].sexo);
+end.
