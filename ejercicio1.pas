@@ -58,7 +58,7 @@ program ejercicio1;
         tabla:tTablaEmpleados;
         numerolegajo,i,j:integer;
 begin
-    writeln('Ingrese numero de legajo entre 7000 y 10000: ');
+    writeln('Ingrese numero de legajo entre 7000 y 10000: ');  //cargar registros manualmente dependiendo n de legajos 
     readln(numerolegajo);
     tabla[numerolegajo].Nombrecompleto:='maia cornejo';
     tabla[numerolegajo].sexo:=Femenino;
