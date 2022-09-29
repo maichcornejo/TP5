@@ -1,0 +1,95 @@
+(87 sloc)  2.37 KB
+
+program tp5;
+type
+    edades= 18..65;
+    estudios= (primarios, secundarios, terciarios);
+    civil= (casado, soltero, viudo, divorciado);
+    anno= 1900..2022;
+    idioma= (espannol, ingles, frances, portugues, aleman);
+    digitos= 0..9;
+    genero= (f, m, masculino, femenino);
+
+    tfecha= record
+        dia: byte;
+        mes: byte;
+        anio: integer;
+    end;
+
+    tdomicilio= record
+        calle: string;
+        numero: integer;
+        departamento: string;
+    end;
+
+    tEmpleados= record
+        nombre: string [35];
+        sexo: genero;
+        edad: edades;
+        cursados: estudios;
+        estado: civil;
+    end;
+
+    tLibros= record
+        titulolibro: string;
+        nombreautor: string;
+        paginas: integer;
+        annoedicion: anno;
+        idiomaesc: idioma;
+    end;
+
+    tAlumnos= record
+        dni: array [1..8] of digitos;
+        nombrealumno: string;
+        domicilio: tdomicilio;
+        telefono: array[1..10] of digitos;
+        fechaing: tfecha;
+        numlibreta: array[1..5] of digitos;
+        codigo: integer;
+        mataprobadas: integer;
+        matcursadas: integer;
+    end;
+    TTablaempleados= array [7000..10000] of tEmpleados;
+    TInfolibros= array [1..200] of tLibros;
+    TInfoalumnos= array[1..200] of tAlumnos;
+
+    var 
+    i,numerolegajo:integer;
+    mEmpleados:TTablaempleados;
+    mLibros:TInfolibros;
+    mAlumnos:TInfoalumnos;
+    procedure  Legajos(var matriz: TTablaempleados);
+        begin
+        with matriz[numerolegajo] do begin
+            writeln ('Ingrese Nombre y apellido: ');
+            readln(nombre);
+            writeln ('Ingrese edad: ');
+            readln(edad);
+            writeln ('Ingrese sexo: ');
+            readln(sexo);
+            writeln ('Ingrese estudios cursados: ');
+            readln(cursados);
+            writeln ('Ingrese estado civil: ');
+            readln(estado);
+        end;
+    end;
+    procedure listado(matriz:TTablaempleados);
+    begin
+      with matriz[numerolegajo] do begin
+      writeln(nombre);
+      writeln(edad);
+      writeln(sexo);
+      writeln(cursados);
+      writeln(estado);
+      end;
+    end;
+begin
+    for i:=1 to 2 do
+      begin
+    WriteLn('Ingrese numero de legajo: ');
+    readln(numerolegajo);
+    Legajos(mempleados);
+    end;
+    for i:=1 to 2 do
+    listado(mEmpleados);
+end.
